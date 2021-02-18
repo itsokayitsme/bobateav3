@@ -22,11 +22,16 @@ class DrinksController < ApplicationController
     end
 
     def new
-
+        @drinks = Drink.new
     end
 
     def create
-
+        @drinks = Drink.new(drinks_params)
+        if @drinks.save
+            redirect_to @drinks
+        else
+            render :new
+        end
     end
 
     def edit
@@ -34,11 +39,30 @@ class DrinksController < ApplicationController
     end
 
     def update
-
+        if @drinks.update(drinks_params)
+            redirect_to @drinks
+        else
+            render :edit
+        end
     end
 
     def destroy
+        @drinks.destroy
+        redirect_to drinks_path
+    end
 
+    private
+
+    def drinks_params
+        params.require(:drinks).permit(:name, :user_id, :order_id)
+    end
+
+    def set_drinks
+        @drinks = Drink.find(params[:id])
+    end
+
+    def set_users
+        @users = User.all
     end
 
 end
