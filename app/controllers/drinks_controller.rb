@@ -13,10 +13,10 @@ class DrinksController < ApplicationController
             @drinks = Drink.all.sort_by {|r| r.ingredients.count}.reverse
         elsif params[:query]
             @drinks = Drink.where('name LIKE ?', "%#{params[:query]}%")
-            render :index
         else
             @drinks = Drink.all
         end
+        render :index
     end
 
     def show
@@ -28,12 +28,18 @@ class DrinksController < ApplicationController
     end
 
     def create
+        puts "I'm in create"
         @drinks = Drink.new(drinks_params)
-        if @drinks.save
-            redirect_to @drinks
-        else
-            render :new
-        end
+        @drinks.order_id = Order.all.first.id
+        @drinks.user_id = User.all.first.id
+        puts @drinks.inspect
+        # if 
+            @drinks.save
+            puts "I'm in save"
+            redirect_to drinks_path(@drinks)
+        # else
+            # render :new
+        # end
     end
 
     def edit
