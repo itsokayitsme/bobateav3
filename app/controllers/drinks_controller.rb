@@ -1,4 +1,6 @@
 class DrinksController < ApplicationController
+    before_action :set_drinks, only: [:create, :destroy]
+    
     def index
         # if signed_in?
         #     @drinks = Drink.all.select do |drink|
@@ -46,10 +48,15 @@ class DrinksController < ApplicationController
         end
     end
 
+   
     def destroy
-        @drinks.destroy
-        redirect_to drinks_path
+            @drinks = Drink.find(params[:id])
+            if @drinks.present?
+              @drinks.destroy
+            end
+            redirect_to @drinks
     end
+    
 
     private
 
@@ -66,4 +73,5 @@ class DrinksController < ApplicationController
     end
 
 end
+
 

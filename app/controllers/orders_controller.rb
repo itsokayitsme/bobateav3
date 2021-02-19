@@ -1,30 +1,32 @@
 class OrdersController < ApplicationController
 
-
+    def index
+        @orders = Order.all
+    end
 
     def new
-        @order = Order.new
+        @orders = Order.new
     end
 
     def create
-        @order = Order.new(order_params)
-        if @order.save
-            redirect_to @order.user
+        @orders = Order.new(order_params)
+        if @orders.save
+            redirect_to @orders.user
         else
             render :new
         end
     end
 
     def destroy
-        @order = Order.find(params[:id])
-        @order.destroy
-        redirect_to @order.user
+        @orders = Order.find(params[:id])
+        @orders.destroy
+        redirect_to @orders.user
     end
 
     private
 
     def order_params
-        params.require(:order).permit(:user_id)
+        params.require(:orders).permit(:user_id)
     end
 end
 

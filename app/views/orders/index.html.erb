@@ -1,0 +1,6 @@
+<h1>Orders</h1>
+
+<%@orders.each do |order|%>
+    <%= link_to 'View order', order_path(@orders)%>
+    <%= @orders.name%> <br>
+    <%end%>
