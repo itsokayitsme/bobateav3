@@ -1,5 +1,6 @@
 <h3>Current boba drink</h3>
 
-<p><%= link_to "Edit drink", edit_drink_path %></p>
+
 <p><%= link_to "Add drink", new_drink_path %></p>
+<p><%= link_to "Edit drink", edit_drink_path %></p>
 <%= button_to "Delete this drink", @drinks, method: :delete, data: {confirm: "Are you sure?"} %>
