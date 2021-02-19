@@ -1,8 +1,8 @@
 <h1>Boba Drinks!</h1>
 
 <%@drinks.each do |drink|%>
-    <%= link_to 'View Drink', drink_path(@drinks)%>
-    <%= @drinks.name%> <br>
+    <%= link_to 'View Drink', drink_path(drink)%>
+    <%= drink.name%> <br>
     <%end%>
 
     <p> <%=link_to 'Make a new drink', new_drink_path %></p>
