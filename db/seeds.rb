@@ -27,7 +27,7 @@ end
 end
 
 20.times do
-    Drink.create(name: Faker::Food.fruits, user_id:User.all.sample.id, order_id:Order.all.sample.id, sugar_amt:2, ice_amt:2, boba:true, jelly:true, smallsize:true, largesize:true)
+    Drink.create(name: Faker::Food.fruits, user_id:User.all.sample.id, order_id:Order.all.sample.id, sugar_amt:2, ice_amt:2, boba:true, jelly:true, small:true, large:true)
 end
 
 30.times do

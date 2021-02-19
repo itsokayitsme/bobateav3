@@ -8,8 +8,8 @@ class CreateDrinks < ActiveRecord::Migration[6.1]
       t.integer :ice_amt
       t.boolean :boba, :default => false
       t.boolean :jelly, :default => false
-      t.boolean :smallsize, :default => false
-      t.boolean :largesize, :default => false
+      t.boolean :small, :default => false
+      t.boolean :large, :default => false
 
       t.timestamps
     end

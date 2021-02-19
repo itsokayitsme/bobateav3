@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2021_02_18_003813) do
     t.integer "ice_amt"
     t.boolean "boba", default: false
     t.boolean "jelly", default: false
-    t.boolean "smallsize", default: false
-    t.boolean "largesize", default: false
+    t.boolean "small", default: false
+    t.boolean "large", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_drinks_on_order_id"

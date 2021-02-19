@@ -1,1 +1,23 @@
-<h1>Edit your drink here!</h1>
+<h1>Edit your drink here</h1>
+
+
+<%= form_for Drink.new do |f| %>
+
+    <%= f.label :name  %>
+    <%= f.text_field :name %>
+    <%= f.label :sugar_amt %>
+    <%= f.select :sugar_amt, [[20], [40], [60], [80], [100]] %>
+    <%= f.label :ice_amt %>
+    <%= f.select :ice_amt, [[20], [40], [60], [80], [100]] %>
+    <%= f.label "boba" %>
+    <%= f.check_box :boba %> 
+    <%= f.label "jelly" %> 
+    <%= f.check_box :jelly %> 
+    <%= f.label "small" %> 
+    <%= f.check_box :small %> 
+    <%= f.label "large" %> 
+    <%= f.check_box :large %> 
+    <%= f.submit %>
+
+ 
+   <%end%>

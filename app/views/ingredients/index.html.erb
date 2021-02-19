@@ -1,0 +1,10 @@
+<h1>List of all the drink ingredients!</h1>
+
+<%@ingredients.each do |ingredient|%>
+   
+    <%= ingredient.name%> <br>
+    <%end%>
+
+    
+
+<p><%= link_to 'Create new drink', new_drink_path %></p>

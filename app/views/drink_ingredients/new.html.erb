@@ -1,0 +1,19 @@
+<h1>Add a drink ingredient</h1>
+
+<%= form_for @drink_ingredient do |d| %>   
+    <% if @drink_ingredient.errors.any? %>
+        <ul>
+            <% @drink_ingredient.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+
+<% end %>
+    <%= d.label :drink %>
+    <%= d.collection_select :drink_id, @drinks, :id, :name %>
+    <%= d.label :ingredient %>
+    <%= d.collection_select :ingredient_id, @ingredients, :id, :name %>
+    <%= d.label :amount %>
+    <%= d.text_field :amount %>
+    <%= d.submit %>
+<% end %>
